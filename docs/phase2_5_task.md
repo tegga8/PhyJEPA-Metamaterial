@@ -52,10 +52,12 @@ work. The scope is strictly:
 
 ## Decision
 
-The unchanged 30k baseline improves some global amplitude metrics but does not
-improve resonance localization. The controlled response-aware follow-up passes
-the resonance criterion on the preserved 500-ID holdout: feature match rate
-increases to 99.56% and resonance-frequency MAE falls to 0.316 GHz. Keep this
-candidate for resonance-sensitive follow-up, but do not scale to 100k or use it
-as the sole physics objective until a second seed and calibration/worst-case
-checks confirm the trade-off in global metrics.
+The final controlled A/B/C validation classifies the baseline CNN as useful for
+candidate screening, not yet as a fully trusted physics objective. On the
+preserved 500-ID test set, the resonance-weighted 5k run reaches 100% feature
+match and 0.103 GHz resonance-frequency MAE, while the 30k resonance-weighted
+run reaches 99.41% feature match and 0.243 GHz error with better global error.
+Gradients are finite, nonzero, and locally consistent, but this does not prove
+agreement with the EM solver. Do not scale automatically to 100k or use the
+CNN as the sole physics objective until another seed, calibration/worst-case
+checks, and a small real-EM perturbation validation are complete.

@@ -2,12 +2,13 @@
 
 ## Decision
 
-**The response-aware follow-up is accepted for resonance-sensitive use, but the
-surrogate should not be scaled directly to 100k yet.** A modest residual CNN
-with a resonance-weighted complex loss substantially improves resonance
-localization on the preserved 500-ID holdout. Its global magnitude metrics are
-mixed, so it is a targeted improvement rather than a universal replacement for
-the baseline.
+**Final classification: B - useful for candidate screening, not yet a fully
+trusted physics objective.** With the unchanged baseline CNN, the
+resonance-weighted loss substantially improves resonance localization and
+produces stable, internally consistent gradients. However, the 5k
+resonance-weighted run sacrifices global metrics, and the gradient checks do not
+establish agreement with the real EM solver. Keep the CNN for cheap screening
+and use the EM solver for final validation.
 
 ## Dataset and split methodology
 
@@ -149,18 +150,59 @@ not establish useful inverse-design gradients for binary fabrication constraints
 
 ## Recommendation and Phase 3
 
-The response-aware model passes the resonance acceptance criterion and is the
-preferred candidate for the next controlled experiment. Do **not** scale
-directly to 100k or use it as the sole physics objective for physics-aware JEPA
-yet: its y-cross magnitude MAE is slightly worse and its global normalized MSE
-is higher than the baseline on the shared holdout. First repeat this candidate
-with at least one additional seed and compare calibration and worst-case
-failures; then decide whether 100k is justified. No JEPA, PINN, inverse design,
-diffusion, or Maxwell-solver-in-the-loop code was introduced in this phase.
+Use Experiment B for resonance-sensitive candidate screening and Experiment C
+when the larger training set is available. Do **not** use either as a sole
+physics objective for physics-aware JEPA yet. Before that step, repeat the
+chosen configuration with another seed, perform calibration and worst-case
+analysis, and compare CNN response changes against a small set of real EM
+solver perturbations. Do not scale to 100k automatically: C improves over B on
+the shared 500-ID test, but its resonance gain over B is modest relative to the
+extra compute. No JEPA, PINN, inverse design, diffusion, or
+Maxwell-solver-in-the-loop code was introduced in this phase.
 
-## Response-aware Phase 2.5 follow-up
+## Final controlled validation: Experiments A, B, and C
 
-The follow-up keeps the nested 30k split, seed 42, batch size 64, AdamW
+All three experiments use the unchanged `ForwardSurrogateCNN`, seed 42, batch
+size 64, AdamW with learning rate 0.001 and weight decay 1e-5, the same 75-epoch
+ceiling and patience 15, and the fixed thresholds in
+[`phase2_5_config.md`](phase2_5_config.md). They were trained and evaluated
+with CUDA-enabled Python 3.14 (`torch 2.10.0+cu126`) on the RTX 3050.
+
+| Metric | A: 5k MSE | B: 5k resonance | C: 30k resonance |
+| --- | ---: | ---: | ---: |
+| normalized MSE | 0.331021 | 0.361289 | 0.325856 |
+| complex MAE | 0.058633 | 0.064390 | 0.057670 |
+| y magnitude MAE | 0.065986 | 0.075104 | 0.066827 |
+| x magnitude MAE | 0.043385 | 0.044020 | 0.042479 |
+| y correlation | 0.603310 | 0.374257 | 0.498705 |
+| x correlation | 0.757910 | 0.727919 | 0.735846 |
+| resonance frequency MAE (GHz) | 0.525456 | 0.103201 | 0.252703 |
+| resonance-region MAE | 0.241849 | 0.234538 | 0.228216 |
+| feature match rate | 96.41% | 100.00% | 99.62% |
+| training time (s) | 46.145 | 67.464 | 160.473 |
+
+On the shared 500-ID test set, C reaches normalized MSE 0.300002, resonance
+frequency MAE 0.243154 GHz, resonance-region MAE 0.226388, and feature match
+rate 99.41%, using its own 30k train-only normalization statistics. The
+comparison files are `outputs/phase2_5/comparison.csv` and
+`outputs/phase2_5/comparison_shared_500.csv`.
+
+### Gradient stability and local perturbation
+
+Each experiment was tested on 5 continuous geometries and 5 held-out target
+spectra, for 25 gradient cases and 125 one-pixel perturbation cases. Every
+gradient was finite and every pixel had a nonzero gradient. Gradient norm
+ranges were 0.242-1.637 for A, 0.163-1.686 for B, and 0.151-1.726 for C.
+Finite-difference sign agreement was 83.2%, 84.8%, and 94.4% respectively.
+These tests establish differentiability and local internal consistency only;
+they do not establish physical correctness relative to Maxwell simulation.
+The detailed CSV/JSON results and `gradient_map.png` are in each experiment's
+`gradient/` directory.
+
+## Separate response-aware architecture follow-up
+
+This earlier follow-up is separate from the mandated A/B/C comparison because
+it changes the architecture. It keeps the nested 30k split, seed 42, batch size 64, AdamW
 learning rate 0.001, weight decay 1e-5, 75-epoch ceiling, and patience 15. The
 candidate has shallow residual geometry blocks, retains a 4x4 spatial feature
 map, and adds a small 1-D spectral refinement head. Its loss weights target

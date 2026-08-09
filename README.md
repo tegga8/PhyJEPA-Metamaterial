@@ -75,3 +75,30 @@ available:
 & C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_forward.py --subset-root data/processed/sutd_prcm_30k --output-dir outputs/phase2_forward_30k_response_aware_gpu --model ResponseAwareSurrogateCNN --loss resonance_weighted_complex --epochs 75 --patience 15 --device cuda
 & C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/evaluate_forward.py --subset-root data/processed/sutd_prcm_30k --checkpoint outputs/phase2_forward_30k_response_aware_gpu/best.pt --output-dir outputs/phase2_forward_30k_response_aware_gpu/evaluation --device cuda
 ```
+
+The final controlled validation uses the unchanged baseline CNN for all three
+experiments and writes the required artifacts under `outputs/phase2_5/`:
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_forward.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase2_5/exp_A_5k_mse --model ForwardSurrogateCNN --loss normalized_mse --epochs 75 --patience 15 --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_forward.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase2_5/exp_B_5k_resonance --model ForwardSurrogateCNN --loss resonance_weighted_complex --resonance-weight 4 --magnitude-weight 0.15 --epochs 75 --patience 15 --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_forward.py --subset-root data/processed/sutd_prcm_30k --output-dir outputs/phase2_5/exp_C_30k_resonance --model ForwardSurrogateCNN --loss resonance_weighted_complex --resonance-weight 4 --magnitude-weight 0.15 --epochs 75 --patience 15 --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/compare_forward_experiments.py
+```
+
+## Phase 3: supervised partial-structure completion
+
+Phase 3 synthesizes partial examples from the complete 5k geometries. The
+completion model receives `[partial_geometry, mask]`, predicts missing pixels,
+and composites the result with known pixels preserved exactly. The completed
+experiments and report are in [`docs/phase3_report.md`](docs/phase3_report.md).
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_completion.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase3_completion/exp_3A --mask-type central_block --missing-ratio 0.25 --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/evaluate_completion.py --checkpoint outputs/phase3_completion/exp_3A/best.pt --output-dir outputs/phase3_completion/exp_3A --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/compare_completion.py
+```
+
+The four completed runs are stored under `outputs/phase3_completion/exp_3A`
+through `exp_3D`; use their saved `config.json` files for the exact mask and
+training settings.

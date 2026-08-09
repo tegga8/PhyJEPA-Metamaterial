@@ -92,6 +92,7 @@ def save_prediction_grid(
     indexes: np.ndarray,
     errors: np.ndarray,
     title: str,
+    error_label: str = "normalized MSE",
 ) -> None:
     """Plot geometry, y-cross magnitude, and x-co magnitude for selected rows."""
     figure, axes = plt.subplots(len(indexes), 3, figsize=(13, max(3.2, 2.2 * len(indexes))))
@@ -100,7 +101,7 @@ def save_prediction_grid(
     for row, index in enumerate(indexes):
         geometry_axis, y_axis, x_axis = axes[row]
         geometry_axis.imshow(geometries[index, 0], cmap="gray_r", vmin=0, vmax=1, interpolation="nearest")
-        geometry_axis.set_title(f"{dataset.source_id(int(index))}\nnormalized MSE={errors[index]:.4f}", fontsize=7)
+        geometry_axis.set_title(f"{dataset.source_id(int(index))}\n{error_label}={errors[index]:.4f}", fontsize=7)
         geometry_axis.set_xticks([])
         geometry_axis.set_yticks([])
         for axis, components, label in ((y_axis, (0, 1), "y-cross |T| reflection"), (x_axis, (2, 3), "x-co |R| reflection")):
@@ -246,6 +247,7 @@ def main() -> None:
         row["matched_resonance_feature_count"] = matched_count
         row["resonance_frequency_error_ghz"] = float(np.mean(channel_errors)) if channel_errors else float("nan")
         row["resonance_region_magnitude_mae"] = float(np.nanmean(local_region)) if np.isfinite(local_region).any() else float("nan")
+        row["magnitude_mae"] = float(np.mean([row["y_cross_reflection_magnitude_mae"], row["x_co_reflection_magnitude_mae"]]))
         all_region_errors.append(row["resonance_region_magnitude_mae"])
         rows.append(row)
 
@@ -292,12 +294,22 @@ def main() -> None:
         normalized_prediction=prediction_n, normalized_target=target_n, geometries=np.asarray([dataset.geometries[int(i)] for i in dataset.indices]),
     )
     normalized_mse = error_arrays["normalized_mse"]
+    magnitude_mae = np.asarray([float(row["magnitude_mae"]) for row in rows])
+    resonance_frequency_error = np.asarray([
+        float(row["resonance_frequency_error_ghz"]) if np.isfinite(float(row["resonance_frequency_error_ghz"])) else -np.inf
+        for row in rows
+    ])
     generator = np.random.default_rng(args.seed)
     random_indexes = generator.choice(len(dataset), size=min(args.plot_count, len(dataset)), replace=False)
     worst_indexes = np.argsort(normalized_mse)[-min(args.plot_count, len(dataset)):][::-1]
+    worst_magnitude_indexes = np.argsort(magnitude_mae)[-min(args.plot_count, len(dataset)):][::-1]
+    finite_resonance_indexes = np.flatnonzero(np.isfinite(resonance_frequency_error) & (resonance_frequency_error >= 0))
+    worst_resonance_indexes = finite_resonance_indexes[np.argsort(resonance_frequency_error[finite_resonance_indexes])[-min(args.plot_count, len(finite_resonance_indexes)):][::-1]] if len(finite_resonance_indexes) else worst_indexes
     geometries = np.asarray([dataset.geometries[int(i)] for i in dataset.indices])
     save_prediction_grid(plots / "random_predictions.png", dataset, geometries, prediction, target, random_indexes, normalized_mse, "Random deterministic test predictions")
-    save_prediction_grid(failures / "worst_predictions.png", dataset, geometries, prediction, target, worst_indexes, normalized_mse, "Worst test predictions ranked only by normalized MSE")
+    save_prediction_grid(failures / "worst_predictions.png", dataset, geometries, prediction, target, worst_indexes, normalized_mse, "Worst test predictions ranked by normalized MSE")
+    save_prediction_grid(failures / "worst_magnitude_mae.png", dataset, geometries, prediction, target, worst_magnitude_indexes, magnitude_mae, "Worst test predictions ranked by magnitude MAE", "magnitude MAE")
+    save_prediction_grid(failures / "worst_resonance_frequency_error.png", dataset, geometries, prediction, target, worst_resonance_indexes, resonance_frequency_error, "Worst test predictions ranked by resonance-frequency error", "resonance error (GHz)")
     save_complexity_plot(plots / "error_vs_geometry_complexity.png", rows)
     gradient = gradient_sanity(args.checkpoint, target_n[0], geometries[0], device, plots / "gradient_sanity.png", model_name)
     metadata = {
