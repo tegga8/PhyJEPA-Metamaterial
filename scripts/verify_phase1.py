@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -19,6 +20,9 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=32)
     args = parser.parse_args()
     root = args.subset_root
+    metadata = json.loads((root / "metadata.json").read_text(encoding="utf-8"))
+    expected_size = int(metadata["subset_size"])
+    expected_splits = {name: int(value) for name, value in metadata["split_counts"].items()}
 
     geometries = np.load(root / "geometries.npy", mmap_mode="r")
     responses = np.load(root / "responses.npy", mmap_mode="r")
@@ -29,13 +33,13 @@ def main() -> None:
         for name in ("train", "val", "test")
     }
 
-    assert geometries.shape == (5_000, 1, 16, 16), geometries.shape
-    assert responses.shape == (5_000, 4, 1001), responses.shape
-    assert len(source_ids) == 5_000
+    assert geometries.shape == (expected_size, 1, 16, 16), geometries.shape
+    assert responses.shape == (expected_size, 4, 1001), responses.shape
+    assert len(source_ids) == expected_size
     assert np.isin(geometries, (0, 1)).all()
     assert np.isfinite(responses).all()
     assert np.allclose(frequency_ghz, np.linspace(2.0, 12.0, 1001, dtype=np.float32))
-    assert {name: len(ids) for name, ids in splits.items()} == {"train": 4_000, "val": 500, "test": 500}
+    assert {name: len(ids) for name, ids in splits.items()} == expected_splits
     assert all(len(ids) == len(set(ids)) for ids in splits.values())
     assert not (set(splits["train"]) & set(splits["val"]))
     assert not (set(splits["train"]) & set(splits["test"]))
@@ -54,7 +58,7 @@ def main() -> None:
         assert response_batch.shape[1:] == (4, 1001), (name, response_batch.shape)
 
     print("Phase 1 verification passed")
-    print("- 5,000 samples; 4,000 / 500 / 500 train/val/test")
+    print(f"- {expected_size:,} samples; {expected_splits['train']:,} / {expected_splits['val']:,} / {expected_splits['test']:,} train/val/test")
     print("- binary [1, 16, 16] geometries; finite [4, 1001] responses")
     print("- 2.00–12.00 GHz frequency vector; disjoint, deterministic splits")
 

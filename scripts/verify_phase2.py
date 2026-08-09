@@ -67,4 +67,5 @@ def main() -> None:
         print(f"- {name}: {value / samples:.6f}")
 
 
-if __name__ == "__main__":n+    main()
+if __name__ == "__main__":
+    main()

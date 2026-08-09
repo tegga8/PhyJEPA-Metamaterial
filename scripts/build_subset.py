@@ -17,8 +17,9 @@ def main() -> None:
     parser.add_argument("--output-root", type=Path, default=Path("data/processed/sutd_prcm_5k"))
     parser.add_argument("--size", type=int, default=5_000)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--base-subset-root", type=Path, default=None, help="Optional processed subset to extend without changing its split IDs")
     args = parser.parse_args()
-    counts = build_subset(args.raw_root, args.output_root, args.size, args.seed)
+    counts = build_subset(args.raw_root, args.output_root, args.size, args.seed, args.base_subset_root)
     print(f"Created {args.output_root} with split sizes: {counts}")
 
 

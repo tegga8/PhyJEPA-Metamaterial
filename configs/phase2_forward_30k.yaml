@@ -1,0 +1,13 @@
+seed: 42
+subset_root: data/processed/sutd_prcm_30k
+model: ForwardSurrogateCNN
+input_shape: [1, 16, 16]
+target_shape: [4, 1001]
+training:
+  batch_size: 64
+  epochs: 75
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  loss: normalized_mse
+  early_stopping_patience: 15

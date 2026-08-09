@@ -1,0 +1,15 @@
+seed: 42
+subset_root: data/processed/sutd_prcm_5k
+checkpoint: outputs/phase2_forward_75ep/best.pt
+output_dir: outputs/phase2_forward_evaluation
+evaluation:
+  batch_size: 64
+  device: auto
+  resonance_prominence: 0.03
+  resonance_distance_points: 10
+  resonance_window_ghz: 0.10
+  plot_count: 20
+ranking: normalized_mse
+geometry_complexity:
+  connectivity: 4
+  boundary: unlike horizontal and vertical in-image neighboring pairs

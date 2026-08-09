@@ -106,8 +106,14 @@ def build_subset(
     output_root: str | Path,
     size: int = 5_000,
     seed: int = 42,
+    base_subset_root: str | Path | None = None,
 ) -> dict[str, int]:
-    """Materialize a balanced, immutable subset without modifying raw data."""
+    """Materialize a balanced subset without modifying raw data.
+
+    When ``base_subset_root`` is supplied, the new subset is a nested extension:
+    every base source ID remains in its existing split.  This supports a fair
+    data-scale experiment without changing the completed 5k split.
+    """
     if size % len(FAMILIES):
         raise ValueError(f"Subset size must be divisible by {len(FAMILIES)} for family balance")
     output_root = Path(output_root)
@@ -115,7 +121,69 @@ def build_subset(
         raise FileExistsError(f"Output directory is not empty: {output_root}")
     output_root.mkdir(parents=True, exist_ok=True)
     shards = discover_shards(raw_root)
-    refs = _balanced_refs(shards, size // len(FAMILIES), seed)
+    split_override: dict[str, list[str]] | None = None
+    if base_subset_root is None:
+        refs = _balanced_refs(shards, size // len(FAMILIES), seed)
+        selection = "uniform random without replacement within each of PLG, PLR, PTN, RDN"
+    else:
+        base_root = Path(base_subset_root)
+        base_metadata = json.loads((base_root / "metadata.json").read_text(encoding="utf-8"))
+        base_ids = (base_root / "source_ids.txt").read_text(encoding="utf-8").splitlines()
+        if len(base_ids) >= size:
+            raise ValueError("Nested subset size must exceed the base subset size")
+        shard_lookup = {(shard.family, shard.name): shard for shard in shards}
+
+        def ref_from_id(identifier: str) -> tuple[Shard, int]:
+            family, shard_name, offset_text = identifier.split("/")
+            try:
+                shard = shard_lookup[(family, shard_name)]
+            except KeyError as exc:
+                raise ValueError(f"Base subset references unknown raw shard: {identifier}") from exc
+            offset = int(offset_text)
+            if not 0 <= offset < shard.length:
+                raise ValueError(f"Base subset references invalid raw offset: {identifier}")
+            return shard, offset
+
+        refs = [ref_from_id(identifier) for identifier in base_ids]
+        selected_ids = set(base_ids)
+        split_override = {
+            split: (base_root / "splits" / f"{split}.txt").read_text(encoding="utf-8").splitlines()
+            for split in ("train", "val", "test")
+        }
+        per_family = size // len(FAMILIES)
+        generator = np.random.default_rng(seed + 1)
+        for family in FAMILIES:
+            base_family = [identifier for identifier in base_ids if identifier.startswith(f"{family}/")]
+            additional = per_family - len(base_family)
+            if additional < 0:
+                raise ValueError(f"Base subset has too many {family} samples for target size")
+            candidates = [
+                (shard, offset)
+                for shard in shards if shard.family == family
+                for offset in range(shard.length)
+                if source_id(shard, offset) not in selected_ids
+            ]
+            if len(candidates) < additional:
+                raise ValueError(f"Not enough unused {family} samples for nested subset")
+            selected = generator.choice(len(candidates), size=additional, replace=False)
+            additional_refs = [candidates[int(index)] for index in selected]
+            refs.extend(additional_refs)
+            additional_ids = [source_id(shard, offset) for shard, offset in additional_refs]
+            desired = {"train": int(0.8 * per_family), "val": int(0.1 * per_family), "test": per_family - int(0.8 * per_family) - int(0.1 * per_family)}
+            generator.shuffle(additional_ids)
+            cursor = 0
+            for split in ("train", "val", "test"):
+                base_count = sum(identifier.startswith(f"{family}/") for identifier in split_override[split])
+                needed = desired[split] - base_count
+                if needed < 0:
+                    raise ValueError(f"Base {split} split has too many {family} samples")
+                split_override[split].extend(additional_ids[cursor : cursor + needed])
+                cursor += needed
+            if cursor != len(additional_ids):
+                raise RuntimeError("Nested split accounting did not consume all additional IDs")
+        for ids in split_override.values():
+            generator.shuffle(ids)
+        selection = f"nested extension of {base_root.as_posix()} with base split IDs preserved; additional samples uniform without replacement per family"
 
     geometry_out = np.lib.format.open_memmap(
         output_root / "geometries.npy", mode="w+", dtype=np.uint8, shape=(size, 1, 16, 16)
@@ -133,7 +201,8 @@ def build_subset(
         image = opened[shard.image_path]
         curve = opened[shard.curve_path]
         geometry_out[position, 0] = image[offset].reshape(16, 16)
-        # Complex y-polarized (T) and x-polarized (R) reflection coefficients.
+        # Complex y-cross (T) and x-co (R) reflection coefficients. T/R are
+        # upstream coefficient names, not transmission/reflection labels.
         response_out[position] = np.stack(
             (curve[offset, 0].real, curve[offset, 0].imag, curve[offset, 1].real, curve[offset, 1].imag)
         )
@@ -141,7 +210,7 @@ def build_subset(
     del geometry_out, response_out
     np.save(output_root / "frequency_ghz.npy", np.linspace(2.0, 12.0, 1001, dtype=np.float32))
 
-    splits = _split_ids(source_ids, seed)
+    splits = _split_ids(source_ids, seed) if split_override is None else split_override
     split_dir = output_root / "splits"
     split_dir.mkdir()
     for split, ids in splits.items():
@@ -164,14 +233,15 @@ def build_subset(
         "geometry_shape": [1, 16, 16],
         "response_shape": [4, 1001],
         "response_channels": [
-            "y_polarized_reflection_real",
-            "y_polarized_reflection_imag",
-            "x_polarized_reflection_real",
-            "x_polarized_reflection_imag",
+            "y_cross_reflection_real",
+            "y_cross_reflection_imag",
+            "x_co_reflection_real",
+            "x_co_reflection_imag",
         ],
         "frequency_axis": {"start_ghz": 2.0, "stop_ghz": 12.0, "points": 1001, "step_ghz": 0.01},
         "split_counts": {name: len(ids) for name, ids in splits.items()},
-        "selection": "uniform random without replacement within each of PLG, PLR, PTN, RDN",
+        "selection": selection,
+        "base_subset_root": str(base_subset_root) if base_subset_root is not None else None,
     }
     (output_root / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     return {name: len(ids) for name, ids in splits.items()}

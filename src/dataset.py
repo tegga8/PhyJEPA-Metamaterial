@@ -1,9 +1,10 @@
 """PyTorch access to the reproducible SUTD PRT processed subset.
 
 The original release stores each electromagnetic response as complex values with
-shape ``[T, R, frequency]``.  In this purely reflective dataset, ``T`` is the
-y-polarized reflection and ``R`` is the x-polarized reflection. This module
-exposes them as four real-valued channels in that fixed order.
+shape ``[T, R, frequency]``. Under x-polarized normal incidence in this purely
+reflective dataset, ``T`` is the y-polarized cross-reflection coefficient and
+``R`` is the x-polarized co-reflection coefficient. This module exposes them
+as four real-valued channels in that fixed order.
 """
 
 from __future__ import annotations
