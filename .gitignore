@@ -1,0 +1,11 @@
+# Raw and generated data are local artifacts, not source control content.
+PLGDATASET/
+PLRDATASET/
+PTNDATASET/
+RDNDATASET/
+data/processed/
+reports/
+outputs/
+
+__pycache__/
+.pytest_cache/

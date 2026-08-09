@@ -1,0 +1,16 @@
+seed: 42
+raw_root: .
+processed_root: data/processed/sutd_prcm_5k
+subset_size: 5000
+subset_selection: balanced across PLG, PLR, PTN, and RDN
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+dataloader:
+  batch_size: 32
+  num_workers: 0
+response_representation:
+  channels: [y_polarized_reflection_real, y_polarized_reflection_imag, x_polarized_reflection_real, x_polarized_reflection_imag]
+  normalization: train_mean_std
+frequency_axis_ghz: [2.0, 12.0, 1001]
