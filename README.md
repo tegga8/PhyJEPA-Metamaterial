@@ -102,3 +102,65 @@ experiments and report are in [`docs/phase3_report.md`](docs/phase3_report.md).
 The four completed runs are stored under `outputs/phase3_completion/exp_3A`
 through `exp_3D`; use their saved `config.json` files for the exact mask and
 training settings.
+
+## Phase 4: JEPA partial-structure completion
+
+Phase 4 evaluates a compact JEPA context/target encoder against the unchanged
+Phase 3 supervised CNN. It keeps the explicit mask channel and exact
+known-pixel compositing. The completed runs and scientific conclusion are in
+[`docs/phase4_report.md`](docs/phase4_report.md).
+
+Run the smoke test first:
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/smoke_test_jepa.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase4_jepa/smoke_test --device cuda --epochs 2
+```
+
+The full benchmark uses the same 5k subset, seed, split, and masks as Phase 3:
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/train_jepa_completion.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase4_jepa/exp_4A --mask-type central_block --missing-ratio 0.25 --variant jepa_reconstruction --lambda-recon 0.1 --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/evaluate_jepa_completion.py --checkpoint outputs/phase4_jepa/exp_4A/best.pt --output-dir outputs/phase4_jepa/exp_4A --device cuda
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/compare_jepa_completion.py
+```
+
+The completed experiment directories are `outputs/phase4_jepa/exp_4A` through
+`exp_4D`; their `config.json` files contain the exact settings. The pure-JEPA
+variant is available through `--variant pure_jepa` and was recorded as a 4A
+ablation. Phase 4 concludes that the supervised CNN wins the primary masked
+IoU comparison, so physics-conditioned completion is intentionally deferred.
+
+## Phase 4.1: spatial / masked JEPA completion
+
+Phase 4.1 replaces the global JEPA vector with a coordinate-preserving
+`[B,64,8,8]` latent map while keeping the same task, masks, split, EMA target
+encoder, and evaluation. The completed three-way comparison is documented in
+[`docs/phase4_1_report.md`](docs/phase4_1_report.md).
+
+Run the required smoke test:
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/smoke_test_spatial_jepa.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase4_1/spatial_smoke --device cuda --epochs 2
+```
+
+The completed benchmark runs are in `outputs/phase4_1/exp_4_1A` through
+`exp_4_1D`. They compare CNN, global JEPA, and spatial JEPA without modifying
+the earlier outputs. Spatial JEPA beats global JEPA in all four conditions and
+beats the CNN on random-25%, but physics conditioning remains deferred.
+
+## Phase 4.2: mask-aware spatial JEPA completion
+
+Phase 4.2 keeps the Phase 4.1 architecture fixed and changes only the JEPA
+objective weighting. The 16x16 hidden mask is average-pooled to 8x8 and used as
+`W = 0.10 + 0.90*M8`. The completed four-way comparison and boundary analysis
+are documented in [`docs/phase4_2_report.md`](docs/phase4_2_report.md).
+
+Run the CUDA smoke test:
+
+```powershell
+& C:\Users\tejas\AppData\Local\Programs\Python\Python314\python.exe scripts/smoke_test_mask_aware_spatial_jepa.py --subset-root data/processed/sutd_prcm_5k --output-dir outputs/phase4_2/mask_aware_smoke --device cuda --epochs 2 --alpha 0.1
+```
+
+The completed alpha=0.10 runs are under `outputs/phase4_2/exp_4_2A` through
+`exp_4_2D`. They compare CNN, global JEPA, ordinary spatial JEPA, and
+mask-aware spatial JEPA. No EM conditioning is introduced.
