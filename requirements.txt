@@ -3,3 +3,4 @@ matplotlib
 torch
 pytest
 scipy
+meent==0.12.0
