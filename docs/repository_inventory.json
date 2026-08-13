@@ -1,0 +1,2031 @@
+{
+  "schema_version": "1.0",
+  "repo_root": "PhyJEPA-Metamaterial",
+  "inventory_generated_at_commit": "554a547a38d5bf60123a1c15f4237cf92efdecdd",
+  "note": "outputs/, data/, reports/ and raw dataset dirs are git-ignored local artifacts; classified at directory level.",
+  "classification_scheme": [
+    "ACTIVE_BASELINE",
+    "ACTIVE_RESEARCH",
+    "HISTORICAL_SUCCESS",
+    "HISTORICAL_FAILURE",
+    "VALIDATION_INFRASTRUCTURE",
+    "REDUNDANT",
+    "GENERATED_CACHE"
+  ],
+  "artifacts": [
+    {
+      "path": ".gitignore",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "git ignore rules (outputs/data/raw caches ignored)",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "archive/te.py",
+      "category": "REDUNDANT",
+      "active_branch": "tests",
+      "purpose": "throwaway CUDA available check (archived)",
+      "status": "dead",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "archived",
+      "notes": "DEBUG leftover moved out of tests/ to archive/ during cleanup; not a test (name te.py), not imported anywhere."
+    },
+    {
+      "path": "configs/phase1.yaml",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "configs",
+      "purpose": "Phase 1 config",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "configs/phase2_5_evaluation.yaml",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "configs",
+      "purpose": "Phase 2.5 eval config",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "configs/phase2_forward.yaml",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "configs",
+      "purpose": "Phase 2 config",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "configs/phase2_forward_30k.yaml",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "configs",
+      "purpose": "30k config",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "configs/phase2_forward_30k_response_aware.yaml",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "configs",
+      "purpose": "response-aware config",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/archive_candidates.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "archive candidate register + executed actions",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/dataset_conventions.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "processed channel conventions",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/inverse_design_artifact_index.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "exact inverse-design artifact paths",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/inverse_design_baseline.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "inverse-design baseline overview (Phases 8-12)",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase10_stochastic_inverse_design.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 10 report (S+eps->z_G->G)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase11_candidate_ranking.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 11 report (candidate screening)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase12_response_generalization_and_bottleneck_diagnosis.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 12 report (response-space generalization + diversity + complexity)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase13_physics_jepa_v2_collapse_fix.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "Physics-JEPA v2 collapse-fix run science report",
+      "status": "evidence (HISTORICAL_FAILURE)",
+      "depends_on": [],
+      "produces": "v1-vs-v2 table",
+      "keep_archive_delete": "keep",
+      "notes": "Contains the ONLY v1-vs-v2 comparison numbers. v1 has NO dedicated doc."
+    },
+    {
+      "path": "docs/phase2_5_config.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 2.5 config",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase2_5_report.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 2.5 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase2_5_task.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 2.5 task spec",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase2_data_pipeline_audit.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 2 pipeline audit",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase3_report.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 3 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase4_1_report.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 4.1 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase4_2_report.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 4.2 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase4_report.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 4 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase5a_physics_conditioned_jepa.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 5a report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase5b_physics_consistent_completion.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 5b report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase6_1_full_spectrum_rcwa_validation.md",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "docs",
+      "purpose": "Phase 6.1 RCWA report",
+      "status": "frozen",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase6_rcwa_validation.md",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "docs",
+      "purpose": "Phase 6 RCWA validation report",
+      "status": "frozen",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase6_surrogate_calibration.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 6 calibration report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase6_to_11_compiled_report.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "compiled phase 6-11 report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase7_counterfactual_target_direction.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 7 counterfactual report",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase7b_forward_screening_surrogate_selection.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 7B screening surrogate selection report",
+      "status": "current",
+      "depends_on": [],
+      "produces": "selected path",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase8_geometry_latent_autoencoder.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 8 report (G->z_G->G gate)",
+      "status": "historical/success",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/phase9_spectrum_to_geometry_baseline.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "Phase 9 report (S->z_G->G)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/Phase_1_SUTD_PRCM_Dataset_Infrastructure.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 1 root report (moved from repo root)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "archived (moved from root to docs/)",
+      "notes": ""
+    },
+    {
+      "path": "docs/Phase_2_5_Forward_EM_Surrogate_Validation.md",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "docs",
+      "purpose": "Phase 2.5 root report (moved from repo root)",
+      "status": "historical",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "archived (moved from root to docs/)",
+      "notes": ""
+    },
+    {
+      "path": "docs/physics_jepa_artifact_index.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "exact v1/v2 artifact paths",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/physics_jepa_open_questions.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "open hypotheses motivating v3",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/physics_jepa_status.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "v1/v2 status and gate results",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/repository_inventory.json",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "per-file inventory and classification",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/repository_review.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "cleanup review and repository health",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/research_map.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "branch/data-flow map",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "docs/research_state.md",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "docs",
+      "purpose": "CANONICAL research state; read this first in any session",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "README.md",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "docs",
+      "purpose": "project entry point",
+      "status": "to-be-updated",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "requirements.txt",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "environment pins (numpy, matplotlib, torch, pytest, scipy, meent==0.12.0)",
+      "status": "current",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": "meent pin is required only for the frozen RCWA validation infra."
+    },
+    {
+      "path": "scripts/analyze_rcwa_convergence.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "RCWA convergence analysis",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6_rcwa/convergence",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/build_subset.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "build processed subsets (Phase 1/2.5)",
+      "status": "completed",
+      "depends_on": [
+        "src.preprocess"
+      ],
+      "produces": "data/processed/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 comparison",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_forward_experiments.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "Phase 2.5 exp A/B/C comparison",
+      "status": "completed",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "comparison tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_forward_scales.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "5k-vs-30k forward comparison",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "comparison metrics",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 comparison",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_phase4_1.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 comparison",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_phase4_2.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 comparison",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/compare_rcwa_surrogate.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "surrogate-vs-RCWA comparison",
+      "status": "completed",
+      "depends_on": [
+        "src.rcwa_solver",
+        "src.physics_consistency"
+      ],
+      "produces": "outputs/phase6_rcwa/comparisons",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/create_completion_data.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "completion dataset creation",
+      "status": "completed",
+      "depends_on": [
+        "src.completion_dataset"
+      ],
+      "produces": "data",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 completion eval",
+      "status": "completed",
+      "depends_on": [
+        "src.completion_model"
+      ],
+      "produces": "metrics/plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_forward.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "evaluate forward surrogate",
+      "status": "completed",
+      "depends_on": [
+        "src.models",
+        "src.dataset",
+        "src.metrics"
+      ],
+      "produces": "evaluation json/plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 JEPA eval",
+      "status": "completed",
+      "depends_on": [
+        "src.jepa_completion_model"
+      ],
+      "produces": "metrics",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_mask_aware_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 eval",
+      "status": "completed",
+      "depends_on": [
+        "src.mask_aware_spatial_jepa_losses"
+      ],
+      "produces": "metrics",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_phase12_response_generalization.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 12 response-space generalization + diversity/complexity",
+      "status": "completed",
+      "depends_on": [
+        "src.conditional_latent_vae",
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "outputs/phase12/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_phase5a.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a eval",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "metrics/plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_phase5b.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5b eval",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "metrics/plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_phase6_surrogate_calibration.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 6 surrogate calibration",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_phase7_counterfactual.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 7 counterfactual target-direction eval",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase7_counterfactual/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_physics_representation.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "representation gate evaluation + plots",
+      "status": "active",
+      "depends_on": [
+        "src.physics_jepa_metrics_eval",
+        "src.physics_jepa_plots"
+      ],
+      "produces": "evaluation.json + plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/evaluate_spatial_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 eval",
+      "status": "completed",
+      "depends_on": [
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "metrics",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/finalize_phase6_1_report.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "Phase 6.1 report finalization",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "reports",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/finalize_phase6_rcwa_report.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "Phase 6 RCWA report finalization",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "reports",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/gradient_validation.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "forward gradient sanity",
+      "status": "completed",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "gradient report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/inspect_dataset.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "raw dataset inspection/dup check (Phase 1)",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "schema report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/overfit_forward.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "forward overfit smoke test",
+      "status": "completed",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "smoke results",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/plot_forward_failures.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "failure-mode plots for forward",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "plots",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/pretrain_em_encoder.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a EM response encoder pretraining",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase5a/em_embedding",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/rank_phase10_candidates.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 11 candidate ranking/screening",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase11_candidate_ranking",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/run_phase6_1_calibration.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "Phase 6.1 full-spectrum RCWA calibration",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6_1/calibration",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/run_phase6_1_generated.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "Phase 6.1 generated validation",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6_1/generated",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/run_rcwa_calibration.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "RCWA calibration run",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6_rcwa/calibration",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/run_rcwa_generated_validation.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "RCWA validation of generated candidates",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase6_rcwa/generated",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/run_rcwa_sanity.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "RCWA sanity run",
+      "status": "completed",
+      "depends_on": [
+        "src.rcwa_solver"
+      ],
+      "produces": "outputs/phase6_rcwa/sanity",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/select_forward_screening_surrogate.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "Phase 7B screen surrogate selection",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "outputs/phase2_5/surrogate_selection/*",
+      "keep_archive_delete": "keep",
+      "notes": "Selected frozen screening surrogate: outputs/phase2_5/exp_C_30k_resonance/best.pt"
+    },
+    {
+      "path": "scripts/smoke_test_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 smoke",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "smoke report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/smoke_test_mask_aware_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 smoke",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "smoke report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/smoke_test_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 smoke",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "smoke report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 CNN completion training",
+      "status": "completed",
+      "depends_on": [
+        "src.completion_dataset"
+      ],
+      "produces": "outputs/phase3_completion/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_forward.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "train forward surrogate (5k/30k variants)",
+      "status": "completed",
+      "depends_on": [
+        "src.models",
+        "src.dataset"
+      ],
+      "produces": "outputs/phase2*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_geometry_autoencoder.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 8 training",
+      "status": "completed",
+      "depends_on": [
+        "src.geometry_autoencoder",
+        "src.dataset"
+      ],
+      "produces": "outputs/phase8_geometry_autoencoder",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 JEPA completion training",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase4_jepa/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_mask_aware_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 training",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase4_2/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_phase10_stochastic_inverse_design.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 10 stochastic VAE training",
+      "status": "completed",
+      "depends_on": [
+        "src.conditional_latent_vae",
+        "scripts.train_phase9_inverse_baselines"
+      ],
+      "produces": "outputs/phase10_stochastic_inverse_design",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_phase9_inverse_baselines.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 9 training (direct MLP + latent predictor)",
+      "status": "completed",
+      "depends_on": [
+        "src.geometry_autoencoder",
+        "src.spectrum_inverse_models",
+        "src.models"
+      ],
+      "produces": "outputs/phase9_inverse_baselines",
+      "keep_archive_delete": "keep",
+      "notes": "Also hosts InverseDataset/load_geometry_autoencoder helpers imported by phase10 script."
+    },
+    {
+      "path": "scripts/train_physics_conditioned_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a training",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase5a/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_physics_consistent_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5b training",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase5b/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/train_physics_jepa.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "train full/overfit/shuffled Physics-JEPA",
+      "status": "active",
+      "depends_on": [
+        "src.physics_jepa",
+        "src.physics_jepa_training"
+      ],
+      "produces": "outputs/physics_jepa*/",
+      "keep_archive_delete": "keep",
+      "notes": "experiment_label default physics_jepa_v1."
+    },
+    {
+      "path": "scripts/train_spatial_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 spatial JEPA training",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "outputs/phase4_1/*",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/verify_phase1.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "Phase 1 schema verification",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/verify_phase2.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "Phase 2 checkpoint verification",
+      "status": "completed",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "verify report",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "scripts/visualize_samples.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "sample visualization (Phase 1)",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "reports/response_samples.png etc",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/__init__.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "package marker",
+      "status": "valid",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/completion_dataset.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "CompletionDataset + masking synthesis",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "completion data",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/completion_losses.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 completion metrics",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "metric tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/completion_model.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 CompletionCNN + compose helpers",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "completions",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/conditional_latent_vae.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 10 ConditionalLatentVAE stochastic generator",
+      "status": "verified",
+      "depends_on": [
+        "src.spectrum_inverse_models"
+      ],
+      "produces": "candidate geometries",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED checkpoint: outputs/phase10_stochastic_inverse_design/generator/best.pt"
+    },
+    {
+      "path": "src/dataset.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "SUTDPRCMDataset loader + normalization + split splits",
+      "status": "verified",
+      "depends_on": [],
+      "produces": "processed subset access for all branches",
+      "keep_archive_delete": "keep",
+      "notes": "Root dependency for nearly every script."
+    },
+    {
+      "path": "src/forward_analysis.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "resonance feature detection, geometry complexity, finite_summary",
+      "status": "verified",
+      "depends_on": [
+        "scipy"
+      ],
+      "produces": "probe targets (used by physics probes + screening)",
+      "keep_archive_delete": "keep",
+      "notes": "Shared utility: physics_representation_metrics imports detect_resonance_features."
+    },
+    {
+      "path": "src/geometry_autoencoder.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 8 GeometryAutoencoder (G->z_G->G)",
+      "status": "verified",
+      "depends_on": [
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "z_G cache",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED baseline checkpoint: outputs/phase8_geometry_autoencoder/best.pt"
+    },
+    {
+      "path": "src/jepa_completion_losses.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "jepa_loss, latent_variance_metrics, masked_reconstruction_bce",
+      "status": "complete&reused",
+      "depends_on": [
+        "src.physics_jepa_losses; src.physics_jepa_training; tests"
+      ],
+      "produces": "loss terms",
+      "keep_archive_delete": "keep",
+      "notes": "Majorshared dependency for Physics-JEPA loss/jepa_loss and variance metrics."
+    },
+    {
+      "path": "src/jepa_completion_model.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 global JEPA completion model",
+      "status": "completed",
+      "depends_on": [
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "completions",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/losses.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "resonance_weighted_complex_loss for response-aware forward surrogate",
+      "status": "verified",
+      "depends_on": [
+        "torch"
+      ],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/mask_aware_spatial_jepa_losses.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 mask-aware spatial JEPA losses",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "loss terms",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/metrics.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "forward eval metrics + unnormalize_response",
+      "status": "verified",
+      "depends_on": [],
+      "produces": "metric tables",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/models.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "forward-surrogate",
+      "purpose": "ForwardSurrogateCNN, ResponseAwareSurrogateCNN, build_forward_model",
+      "status": "verified",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "forward predictions",
+      "keep_archive_delete": "keep",
+      "notes": "Canonical surrogate architecture family."
+    },
+    {
+      "path": "src/physics_conditioned_dataset.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a paired EM-conditioned completion dataset",
+      "status": "completed",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "conditioned data",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/physics_conditioned_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a PhysicsConditionedSpatialJEPA + EM enc/dec",
+      "status": "completed",
+      "depends_on": [
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "physical completions",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/physics_consistency.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5b frozen surrogate physics-consistency losses",
+      "status": "completed",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "physics-gradient diagnostics",
+      "keep_archive_delete": "keep",
+      "notes": "load_frozen_forward_surrogate helper used by RCWA-comparison scripts."
+    },
+    {
+      "path": "src/physics_jepa.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "PhysicsJEPA model + EMA spectrum target (v1 architecture, v2 loss params)",
+      "status": "active",
+      "depends_on": [
+        "src.physics_jepa_encoders"
+      ],
+      "produces": "z_geometry/z_online/z_target/z_pred",
+      "keep_archive_delete": "keep",
+      "notes": "Do not rewrite during organization; v3 will extend."
+    },
+    {
+      "path": "src/physics_jepa_encoders.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "GeometryLatentEncoder, PhysicsSpectrumEncoder (12-token CNN+attention), PhysicsPredictor",
+      "status": "active",
+      "depends_on": [
+        "src.spatial_jepa_completion_model"
+      ],
+      "produces": "32/64-D latents",
+      "keep_archive_delete": "keep",
+      "notes": "Spectrum encoder: Conv1D 4->32->64 + AdaptiveAvgPool1d(12)+self-attn+attn-pool. Frequency position NOT explicitly encoded."
+    },
+    {
+      "path": "src/physics_jepa_losses.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "jepa cross+bootstrap, variance & covariance regularization",
+      "status": "active",
+      "depends_on": [
+        "src.jepa_completion_losses"
+      ],
+      "produces": "loss terms",
+      "keep_archive_delete": "keep",
+      "notes": "v2 = lambda_variance 0.5 + lambda_covariance 0.05 on z_online+z_geometry."
+    },
+    {
+      "path": "src/physics_jepa_metrics_eval.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "evaluate_model_representation battery + cached latent loading",
+      "status": "active",
+      "depends_on": [
+        "src.physics_representation_metrics"
+      ],
+      "produces": "evaluation.json",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/physics_jepa_plots.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "evaluation plotting helpers",
+      "status": "active",
+      "depends_on": [
+        "matplotlib"
+      ],
+      "produces": "plots/*.png",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/physics_jepa_training.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "seeding, PairedDataset, train/eval epochs, latent caching, resonance targets",
+      "status": "active",
+      "depends_on": [
+        "src.dataset",
+        "src.physics_jepa_losses",
+        "src.physics_representation_metrics"
+      ],
+      "produces": "training_history.csv, *_z_*.npy",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/physics_representation_metrics.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "CANONICAL distance/correlation/probe metrics for the representation gate",
+      "status": "active",
+      "depends_on": [
+        "src.forward_analysis"
+      ],
+      "produces": "rho(Dz,DS), rho(Dz,DG), probes",
+      "keep_archive_delete": "keep",
+      "notes": "Do not redefine these metrics for v3."
+    },
+    {
+      "path": "src/preprocess.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "dataset",
+      "purpose": "build_subset raw->processed conversion",
+      "status": "verified",
+      "depends_on": [],
+      "produces": "data/processed/sutd_prcm_5k, 30k, 105k(?)",
+      "keep_archive_delete": "keep",
+      "notes": "Seeded 42, family-balanced."
+    },
+    {
+      "path": "src/rcwa_solver.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "meent RCWA solver wrapper",
+      "status": "frozen/validated",
+      "depends_on": [
+        "meent==0.12.0"
+      ],
+      "produces": "RCWA responses",
+      "keep_archive_delete": "keep",
+      "notes": "FROZEN. Not developed further during cleanup."
+    },
+    {
+      "path": "src/rcwa_validation.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "validation-RCWA",
+      "purpose": "RCWA calibration/caching/convergence suite",
+      "status": "frozen/validated",
+      "depends_on": [
+        "src.rcwa_solver"
+      ],
+      "produces": "calibration reports",
+      "keep_archive_delete": "keep",
+      "notes": "FROZEN."
+    },
+    {
+      "path": "src/spatial_jepa_completion_losses.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 spatial JEPA losses",
+      "status": "completed",
+      "depends_on": [],
+      "produces": "loss terms",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "src/spatial_jepa_completion_model.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 spatial JEPA model + SpatialGeometryEncoder",
+      "status": "complete&reused",
+      "depends_on": [],
+      "produces": "latent maps",
+      "keep_archive_delete": "keep",
+      "notes": "SpatialGeometryEncoder is re-used by Physics-JEPA geometry encoder AND Phase 12 eval."
+    },
+    {
+      "path": "src/spectral_masks.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "physics-JEPA",
+      "purpose": "contiguous spectral mask generation (masked variant only)",
+      "status": "active",
+      "depends_on": [],
+      "produces": "masks",
+      "keep_archive_delete": "keep",
+      "notes": "Not used inside core geometry->physics training; masks are for the spectral-mask variant."
+    },
+    {
+      "path": "src/spectrum_inverse_models.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 9 SpectrumToGeometryDirectMLP / SpectrumToGeometryLatent",
+      "status": "verified",
+      "depends_on": [],
+      "produces": "inverse models",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_completion_dataset.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "completion dataset tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_completion_model.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "completion model tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_conditional_latent_vae.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "conditional VAE tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "dataset loader tests",
+      "status": "passing",
+      "depends_on": [
+        "src.dataset"
+      ],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_forward_screening_selection.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "Phase 7B screening selection tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_geometry_autoencoder.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "geometry AE tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "jepa completion tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_mask_aware_spatial_jepa.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "mask-aware tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_model.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "forward model tests",
+      "status": "passing",
+      "depends_on": [
+        "src.models"
+      ],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_phase11_candidate_ranking.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "phase 11 ranking tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_phase12_response_generalization.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "phase 12 metrics tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_phase2_5.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "Phase 2.5 tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_phase7_counterfactual.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "phase 7 counterfactual tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_physics_conditioned_phase5a.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "phase 5a tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_physics_consistency_phase5b.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "phase 5b tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_physics_jepa.py",
+      "category": "ACTIVE_RESEARCH",
+      "active_branch": "tests",
+      "purpose": "physics-jepa architecture/loss tests + covariance + spectral masks",
+      "status": "passing (18 passed incl. v2 additions)",
+      "depends_on": [
+        "src.physics_jepa*"
+      ],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_rcwa_solver.py",
+      "category": "VALIDATION_INFRASTRUCTURE",
+      "active_branch": "tests",
+      "purpose": "RCWA solver tests (long, meent)",
+      "status": "passing",
+      "depends_on": [
+        "src.rcwa_solver"
+      ],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_spatial_jepa_completion.py",
+      "category": "HISTORICAL_SUCCESS",
+      "active_branch": "tests",
+      "purpose": "spatial jepa tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "tests/test_spectrum_inverse_models.py",
+      "category": "ACTIVE_BASELINE",
+      "active_branch": "tests",
+      "purpose": "spectrum inverse tests",
+      "status": "passing",
+      "depends_on": [],
+      "produces": "",
+      "keep_archive_delete": "keep",
+      "notes": ""
+    },
+    {
+      "path": "outputs/phase10_stochastic_inverse_design/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "PHASE 10 VAE checkpoint + candidates",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "generator/best.pt, candidate_metrics.csv, metrics.json, config.json, validity_limits.json, latent_standardization.npz",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED"
+    },
+    {
+      "path": "outputs/phase11_candidate_ranking/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 11 screening metrics",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "config.json, metrics.json, ranked_top_candidates.csv",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED"
+    },
+    {
+      "path": "outputs/phase12/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 12 metrics",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "metrics.json, summary.csv, complexity/, diversity/, generation/, jepa_vs_ae/, nearest_neighbor/, targets/, plots/",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED"
+    },
+    {
+      "path": "outputs/phase8_geometry_autoencoder/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 8 geometry AE checkpoint + caches",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt, config.json, metrics.json, latents/*.npy, *_metrics.csv",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED; training_history.csv empty (0 bytes)"
+    },
+    {
+      "path": "outputs/phase9_inverse_baselines/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "inverse-design-baseline",
+      "purpose": "Phase 9 inverse baselines",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "direct_mlp/best.pt, latent_predictor/best.pt, *_per_sample.csv, metrics.json",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED"
+    },
+    {
+      "path": "outputs/phase2_5/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "Phase 2.5 forward experiments + surrogate selection incl. canonical screening surrogate",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "exp_C_30k_resonance/best.pt (screening surrogate), surrogate_selection/*, exp_A/B/C",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED: exp_C_30k_resonance/best.pt is the frozen learned screening surrogate."
+    },
+    {
+      "path": "outputs/phase2_forward_30k/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "30k forward surrogate run",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt, history.json",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase2_forward_30k_response_aware_gpu/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "30k response-aware CNN (GPU)",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt, history.json",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase2_forward_30k_response_aware/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "30k response-aware CNN (older)",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt only",
+      "keep_archive_delete": "keep",
+      "notes": "archive candidate: superseded, only best.pt no report"
+    },
+    {
+      "path": "outputs/phase2_forward_30k_response_aware_v2/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "30k response-aware v2",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt only",
+      "keep_archive_delete": "keep",
+      "notes": "archive candidate: no report, superseded"
+    },
+    {
+      "path": "outputs/phase2_forward_30k_independent/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "independent 30k run",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "evaluation/*",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase2_forward_75ep/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "5k forward 75ep baseline",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt, history.json, plots",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase2_forward/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "initial forward run (superseded baseline)",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "best.pt, history.json",
+      "keep_archive_delete": "keep",
+      "notes": "archive candidate: superseded by stabilized runs"
+    },
+    {
+      "path": "outputs/phase2_forward_evaluation/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "forward evaluation plots",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "plots/*",
+      "keep_archive_delete": "keep",
+      "notes": "archive candidate"
+    },
+    {
+      "path": "outputs/phase2_forward_scale_comparison/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "forward-surrogate",
+      "purpose": "scale comparison outputs",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "empty",
+      "keep_archive_delete": "keep",
+      "notes": "archive candidate: empty dir"
+    },
+    {
+      "path": "outputs/physics_jepa/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-JEPA",
+      "purpose": "Physics-JEPA v1 runs",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "seed42_32d/, seed42_64d/, shuffled_32d/, smoke/",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED v1 evidence (HISTORICAL_FAILURE). seed42_32d best_epoch 32, lambda_variance 0.1, no covariance, target centering OFF by default."
+    },
+    {
+      "path": "outputs/physics_jepa_v2/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-JEPA",
+      "purpose": "Physics-JEPA v2 collapse-fix runs",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "seed42_32d/, shuffled_32d/, evaluation_32d/ (evaluation.json + plots), logs/",
+      "keep_archive_delete": "keep",
+      "notes": "PROTECTED v2 evidence (HISTORICAL_FAILURE). lambda_variance 0.5, lambda_covariance 0.05, covariance on z_online+z_geometry, target_centering false."
+    },
+    {
+      "path": "outputs/phase3_completion/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 3 completion exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "exp_3A..3D",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase4_jepa/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4 JEPA exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "exp_4A..4D, ablation/smoke",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase4_1/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.1 exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "exp_4_1A..D, ablation, smoke",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase4_2/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "completion/old-JEPA",
+      "purpose": "Phase 4.2 exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "exp_4_2A..D, smoke",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase5a/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5a exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "physics_5a*/evaluation*",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase5b/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 5b exps",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "physics_5b*/evaluation*",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase6/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 6 calibration",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "surrogate/real solver predictions",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    },
+    {
+      "path": "outputs/phase6_1/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "VALIDATION_INFRASTRUCTURE",
+      "purpose": "Phase 6.1 RCWA",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "cache/, convergence/",
+      "keep_archive_delete": "keep",
+      "notes": "keep (frozen)"
+    },
+    {
+      "path": "outputs/phase6_rcwa/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "VALIDATION_INFRASTRUCTURE",
+      "purpose": "Phase 6 RCWA",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "sanity, calibration, convergence, comparisons, generated, plotted",
+      "keep_archive_delete": "keep",
+      "notes": "keep (frozen)"
+    },
+    {
+      "path": "outputs/phase7_counterfactual/",
+      "category": "GENERATED_CACHE",
+      "active_branch": "physics-conditioned-completion",
+      "purpose": "Phase 7 counterfactual",
+      "status": "generated",
+      "depends_on": [],
+      "produces": "5aA..5aD",
+      "keep_archive_delete": "keep",
+      "notes": "keep"
+    }
+  ]
+}
